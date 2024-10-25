@@ -24,12 +24,12 @@ jobs:
       #   env:
       #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       - name: Start containers
-        run: docker-compose -f "docker-compose.yml" up -d --build
+        run: docker compose -f "docker-compose.yml" up -d --build
       - name: Run tests
         run: docker exec -it php sh -c "php artisan test
       - name: Stop containers
         if: always()
-        run: docker-compose -f "docker-compose.yml" down
+        run: docker compose -f "docker-compose.yml" down
       - name: Build artifact
         run: docker build ./laravel -t harbor.korporate.org/myapp/myapp:${{ github.run_number }}
       - name: Push artifact to harbor
