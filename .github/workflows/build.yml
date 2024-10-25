@@ -55,9 +55,6 @@ jobs:
         run: yq -i '.spec.template.spec.containers[0].image = "harbor.korporate.org/myapp/myapp:${{ github.run_number }}"' 'argocd/staging.yml'
       - name: Push to Repo
         run: |
-          git config --global user.name "${{secrets.USERNAME_GITHUB}}"
-          git config --global user.email "${{secrets.EMAIL_GITHUB}}"
-          cd myapp-argo-staging
           git add .
           git commit -m "Updated by GitHub Actions"
-          git push https://github.com/0769233558/myapp-argo-staging.git --all
+          git push https://github.com/0769233558/myapp.git --all
