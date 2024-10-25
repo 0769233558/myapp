@@ -2,7 +2,8 @@ name: BuildAndPushImageOnHarborAndUpdateArgoCDConfig
 
 on:
   push:
-    branches: [ "master" ]
+    branches:
+      - main
 
 jobs:
   build:
@@ -22,7 +23,7 @@ jobs:
 
     - name: Clone Repository
       run: |
-        git clone <argocd-config-repo-url>
+        git clone https://github.com/0769233558/myapp-argo-staging.git
     - name: Install yq
       run: |
         sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
@@ -38,4 +39,4 @@ jobs:
         cd argocd-test-configs
         git add .
         git commit -m "Updated by GitHub Actions"
-        git push <argocd-config-repo-url> --all
+        git push https://github.com/0769233558/myapp-argo-staging.git --all
