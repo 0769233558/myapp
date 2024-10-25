@@ -1,4 +1,4 @@
-name: BuildAndPushImageOnHarborAndUpdateArgoCDConfig
+name: Harbor
 
 on:
   push:
