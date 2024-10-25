@@ -28,7 +28,7 @@ jobs:
       - name: wait 25s
         run: sleep 25
       - name: Run tests
-        run: docker compose exec -T php vendor/bin/phpunit
+        run: docker compose exec -T php /var/www/app/vendor/vendor/bin/phpunit
       - name: Stop containers
         if: always()
         run: docker compose -f "docker-compose.yml" down
