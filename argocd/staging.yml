@@ -15,4 +15,4 @@ spec:
     spec:
       containers:
         - name: myapp
-          image: harbor.korporate.org/myapp/myapp:67
+          image: harbor.korporate.org/myapp/myapp:68
