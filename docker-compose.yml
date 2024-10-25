@@ -34,20 +34,20 @@ services:
     php:
         build:
             context: .
-            dockerfile: Dockerfile
+            dockerfile: $DOCUMENT_ROOT/laravel/Dockerfile
         container_name: php
         restart: unless-stopped
         tty: true
         working_dir: /var/www/app
         volumes:
-            - :/var/www/app
+            - laravel:/var/www/app
         ports:
             - "${PHP_HOST_PORT}:${PHP_DOCKER_CONTAINER_PORT}"
 
 volumes:
-  wordpress:
+  laravel:
     name: laravel
     driver_opts:
       type: "none"
       o: bind
-      device: $VOLUMES_ROOT/laravel/src
+      device: $DOCUMENT_ROOT/laravel/src
