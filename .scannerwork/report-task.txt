@@ -2,5 +2,5 @@ projectKey=0769233558_myapp_AZLC5UHOSq_hx2o63YVA
 serverUrl=https://sonarqube.korporate.org
 serverVersion=9.9.7.96285
 dashboardUrl=https://sonarqube.korporate.org/dashboard?id=0769233558_myapp_AZLC5UHOSq_hx2o63YVA
-ceTaskId=AZLEai2_Sq_hx2o63YVs
-ceTaskUrl=https://sonarqube.korporate.org/api/ce/task?id=AZLEai2_Sq_hx2o63YVs
+ceTaskId=AZLEa-5gSq_hx2o63YVt
+ceTaskUrl=https://sonarqube.korporate.org/api/ce/task?id=AZLEa-5gSq_hx2o63YVt
