@@ -72,8 +72,9 @@ docker run --rm \
 ```
   ./vendor/bin/sail up
 ```
-
+## Actions
 ![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
+## Sonarqube
 [![Quality Gate Status](https://sonarqube.korporate.org/api/project_badges/measure?project=0769233558_myapp_AZLC5UHOSq_hx2o63YVA&metric=alert_status&token=sqb_229226defed59a48da9d0f25da9f30d82dea84a6)](https://sonarqube.korporate.org/dashboard?id=0769233558_myapp_AZLC5UHOSq_hx2o63YVA)
 [![Bugs](https://sonarqube.korporate.org/api/project_badges/measure?project=0769233558_myapp_AZLC5UHOSq_hx2o63YVA&metric=bugs&token=sqb_229226defed59a48da9d0f25da9f30d82dea84a6)](https://sonarqube.korporate.org/dashboard?id=0769233558_myapp_AZLC5UHOSq_hx2o63YVA)
 [![Code Smells](https://sonarqube.korporate.org/api/project_badges/measure?project=0769233558_myapp_AZLC5UHOSq_hx2o63YVA&metric=code_smells&token=sqb_229226defed59a48da9d0f25da9f30d82dea84a6)](https://sonarqube.korporate.org/dashboard?id=0769233558_myapp_AZLC5UHOSq_hx2o63YVA)
