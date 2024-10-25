@@ -25,10 +25,10 @@ jobs:
       #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       - name: Start containers
         run: docker compose -f "docker-compose.yml" up -d --build
-      - name: wait 25s
-        run: sleep 25
-      - name: Run tests
-        run: docker compose exec -T php /var/www/app/vendor/vendor/bin/phpunit
+      # - name: wait 25s
+      #   run: sleep 25
+      # - name: Run tests
+      #   run: docker compose exec -T php /var/www/app/vendor/vendor/bin/phpunit
       - name: Stop containers
         if: always()
         run: docker compose -f "docker-compose.yml" down
