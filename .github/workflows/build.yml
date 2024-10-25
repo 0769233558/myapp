@@ -52,7 +52,7 @@ jobs:
           git clone https://github.com/0769233558/myapp.git
           cd myapp
       - name: Update YAML File
-        run: yq -i '.spec.template.spec.containers[0].image = "harbor.korporate.org/myapp/myapp:${{ github.run_number }}"' 'argocd/staging.yml' -y
+        run: yq -i '.spec.template.spec.containers[0].image = "harbor.korporate.org/myapp/myapp:${{ github.run_number }}"' 'argocd/staging.yml'
       - name: Push to Repo
         run: |
           git config --global user.name "${{secrets.USERNAME_GITHUB}}"
