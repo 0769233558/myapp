@@ -1,0 +1,25 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: myapp
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: scheduled
+              image:  harbor.korporate.org/myapp/myapp-fpm:latest
+              imagePullPolicy: Never
+              envFrom:
+                - configMapRef:
+                    name: myapp
+                - secretRef:
+                    name: myapp
+              command:
+                - "php"
+              args:
+                - "artisan"
+                - "schedule:run"
+          restartPolicy: OnFailure
