@@ -1,7 +1,7 @@
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: laravel
+  name: myapp
 spec:
   schedule: "* * * * *"
   jobTemplate:
@@ -10,13 +10,13 @@ spec:
         spec:
           containers:
             - name: scheduled
-              image: myapp-fpm:latest
+              image:  harbor.korporate.org/myapp/myapp-fpm:latest
               imagePullPolicy: Never
               envFrom:
                 - configMapRef:
-                    name: laravel
+                    name: myapp
                 - secretRef:
-                    name: laravel
+                    name: myapp
               command:
                 - "php"
               args:

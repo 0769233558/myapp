@@ -32,12 +32,12 @@ spec:
       initContainers:
         - name: database-migrations
           image: harbor.korporate.org/myapp/myapp-fpm:latest
-          imagePullPolicy: Never
+          imagePullPolicy: Always
           envFrom:
             - configMapRef:
-                name: laravel
+                name: myapp
             - secretRef:
-                name: laravel
+                name: myapp
           command:
             - "php"
           args:
@@ -46,7 +46,7 @@ spec:
             - "--force"
       containers:
         - name: nginx
-          imagePullPolicy: Never
+          imagePullPolicy: Always
           image: harbor.korporate.org/myapp/myapp-nginx:latest
           resources:
             limits:
@@ -55,12 +55,12 @@ spec:
           ports:
             - containerPort: 80
         - name: fpm
-          imagePullPolicy: Never
+          imagePullPolicy: Always
           envFrom:
             - configMapRef:
-                name: laravel
+                name: myapp
             - secretRef:
-                name: laravel
+                name: myapp
           securityContext:
             runAsUser: 82
             readOnlyRootFilesystem: true
@@ -76,6 +76,6 @@ spec:
             - name: testing
               mountPath: /var/www/html/storage/framework/testing
           resources: {}
-          image: myapp-fpm:latest
+          image: harbor.korporate.org/myapp/myapp-fpm:latest
           ports:
             - containerPort: 9000
