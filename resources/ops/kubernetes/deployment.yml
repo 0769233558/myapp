@@ -1,0 +1,81 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: /metrics
+        prometheus.io/port: "80"
+    spec:
+      volumes:
+        - name: logs
+          emptyDir: {}
+        - name: cache
+          emptyDir: {}
+        - name: testing
+          emptyDir: {}
+        - name: sessions
+          emptyDir: {}
+        - name: views
+          emptyDir: {}
+      securityContext:
+        fsGroup: 82
+      initContainers:
+        - name: database-migrations
+          image: harbor.korporate.org/myapp/myapp-fpm:latest
+          imagePullPolicy: Never
+          envFrom:
+            - configMapRef:
+                name: laravel
+            - secretRef:
+                name: laravel
+          command:
+            - "php"
+          args:
+            - "artisan"
+            - "migrate"
+            - "--force"
+      containers:
+        - name: nginx
+          imagePullPolicy: Never
+          image: harbor.korporate.org/myapp/myapp-nginx:latest
+          resources:
+            limits:
+              cpu: 500m
+              memory: 50M
+          ports:
+            - containerPort: 80
+        - name: fpm
+          imagePullPolicy: Never
+          envFrom:
+            - configMapRef:
+                name: laravel
+            - secretRef:
+                name: laravel
+          securityContext:
+            runAsUser: 82
+            readOnlyRootFilesystem: true
+          volumeMounts:
+            - name: logs
+              mountPath: /var/www/html/storage/logs
+            - name: cache
+              mountPath: /var/www/html/storage/framework/cache
+            - name: sessions
+              mountPath: /var/www/html/storage/framework/sessions
+            - name: views
+              mountPath: /var/www/html/storage/framework/views
+            - name: testing
+              mountPath: /var/www/html/storage/framework/testing
+          resources: {}
+          image: myapp-fpm:latest
+          ports:
+            - containerPort: 9000
