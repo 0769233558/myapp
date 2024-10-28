@@ -30,6 +30,8 @@ jobs:
       #   timeout-minutes: 5
       #   env:
       #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: Compose before run docker-compose
+        run: composer update --ignore-platform-reqs
       - name: Start containers
         run: docker compose -f "docker-compose.yml" up -d --build
 #       # - name: wait 25s
