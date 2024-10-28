@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: fpm
-          imagePullPolicy: Never
+          imagePullPolicy: Always
           resources: {}
           image: nginx
           ports:
