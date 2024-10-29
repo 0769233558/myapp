@@ -31,7 +31,7 @@ spec:
         fsGroup: 82
       initContainers:
         - name: database-migrations
-          image: harbor.korporate.org/myapp/myapp-fpm:309
+          image: harbor.korporate.org/myapp/myapp-fpm:1.0
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
@@ -47,7 +47,7 @@ spec:
       containers:
         - name: nginx
           imagePullPolicy: Always
-          image: harbor.korporate.org/myapp/myapp-nginx:312
+          image: harbor.korporate.org/myapp/myapp-nginx:1.0
           resources:
             limits:
               cpu: 500m
@@ -76,6 +76,6 @@ spec:
             - name: testing
               mountPath: /var/www/html/storage/framework/testing
           resources: {}
-          image: harbor.korporate.org/myapp/myapp-fpm:312
+          image: harbor.korporate.org/myapp/myapp-fpm:1.0
           ports:
             - containerPort: 9000
