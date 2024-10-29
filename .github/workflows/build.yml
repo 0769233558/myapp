@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: arc-runner-set-kube
+    runs-on: arc-runner-set-dind
     steps:
       - uses: docker/login-action@v1
         with:
