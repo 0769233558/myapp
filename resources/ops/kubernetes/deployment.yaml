@@ -47,7 +47,7 @@ spec:
       containers:
         - name: nginx
           imagePullPolicy: Always
-          image: harbor.korporate.org/myapp/myapp-nginx:248
+          image: harbor.korporate.org/myapp/myapp-nginx:249
           resources:
             limits:
               cpu: 500m
@@ -76,6 +76,6 @@ spec:
             - name: testing
               mountPath: /var/www/html/storage/framework/testing
           resources: {}
-          image: harbor.korporate.org/myapp/myapp-fpm:248
+          image: harbor.korporate.org/myapp/myapp-fpm:249
           ports:
             - containerPort: 9000
