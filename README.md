@@ -81,3 +81,7 @@ make build-fpm build-nginx
 - [![Security Rating](https://sonarqube.korporate.org/api/project_badges/measure?project=0769233558_myapp_AZLC5UHOSq_hx2o63YVA&metric=security_rating&token=sqb_229226defed59a48da9d0f25da9f30d82dea84a6)](https://sonarqube.korporate.org/dashboard?id=0769233558_myapp_AZLC5UHOSq_hx2o63YVA)
 - [![Technical Debt](https://sonarqube.korporate.org/api/project_badges/measure?project=0769233558_myapp_AZLC5UHOSq_hx2o63YVA&metric=sqale_index&token=sqb_229226defed59a48da9d0f25da9f30d82dea84a6)](https://sonarqube.korporate.org/dashboard?id=0769233558_myapp_AZLC5UHOSq_hx2o63YVA)
 - [![Vulnerabilities](https://sonarqube.korporate.org/api/project_badges/measure?project=0769233558_myapp_AZLC5UHOSq_hx2o63YVA&metric=vulnerabilities&token=sqb_229226defed59a48da9d0f25da9f30d82dea84a6)](https://sonarqube.korporate.org/dashboard?id=0769233558_myapp_AZLC5UHOSq_hx2o63YVA)
+
+## Build
+
+[![Build](https://github.com/0769233558/myapp/actions/workflows/build.yml/badge.svg)](https://github.com/0769233558/myapp/actions/workflows/build.yml)
