@@ -43,13 +43,13 @@ jobs:
         if: always()
         run: docker compose -f "docker-compose.yml" down
       - name: Build nginx artifact
-        run: docker image build -f resources/ops/docker/nginx/Dockerfile -t harbor.korporate.org/myapp/myapp-nginx:${{ github.run_number }} --target nginx .
+        run: docker image build -f resources/ops/docker/nginx/Dockerfile -t harbor.korporate.org/myapp/myapp-nginx:1.0 --target nginx .
       - name: Build fpm artifact
-        run: docker image build -f resources/ops/docker/fpm/Dockerfile -t harbor.korporate.org/myapp/myapp-fpm:${{ github.run_number }} --target fpm .
+        run: docker image build -f resources/ops/docker/fpm/Dockerfile -t harbor.korporate.org/myapp/myapp-fpm:1.0 --target fpm .
       - name: Push nginx artifact to harbor
-        run: docker push harbor.korporate.org/myapp/myapp-nginx:${{ github.run_number }}
+        run: docker push harbor.korporate.org/myapp/myapp-nginx:1.0
       - name: Push fpm artifact to harbor
-        run: docker push harbor.korporate.org/myapp/myapp-fpm:${{ github.run_number }}
+        run: docker push harbor.korporate.org/myapp/myapp-fpm:1.0
       - name: Install yq
         run: |
           sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
@@ -62,9 +62,9 @@ jobs:
           git clone https://github.com/0769233558/myapp.git
           cd myapp
       - name: Update YAML File for nginx
-        run: yq -i '.spec.template.spec.containers[0].image = "harbor.korporate.org/myapp/myapp-nginx:${{ github.run_number }}"' 'resources/ops/kubernetes/deployment.yaml'
+        run: yq -i '.spec.template.spec.containers[0].image = "harbor.korporate.org/myapp/myapp-nginx:1.0"' 'resources/ops/kubernetes/deployment.yaml'
       - name: Update YAML File for fpm
-        run: yq -i '.spec.template.spec.containers[1].image = "harbor.korporate.org/myapp/myapp-fpm:${{ github.run_number }}"' 'resources/ops/kubernetes/deployment.yaml'
+        run: yq -i '.spec.template.spec.containers[1].image = "harbor.korporate.org/myapp/myapp-fpm:1.0"' 'resources/ops/kubernetes/deployment.yaml'
       - name: Push to Repo
         run: |
           git add .
