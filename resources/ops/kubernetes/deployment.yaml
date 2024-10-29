@@ -31,7 +31,7 @@ spec:
         fsGroup: 82
       initContainers:
         - name: database-migrations
-          image: harbor.korporate.org/myapp/myapp-fpm:latest
+          image: harbor.korporate.org/myapp/myapp-fpm:299
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
@@ -47,7 +47,7 @@ spec:
       containers:
         - name: nginx
           imagePullPolicy: Always
-          image: harbor.korporate.org/myapp/myapp-nginx:301
+          image: harbor.korporate.org/myapp/myapp-nginx:299
           resources:
             limits:
               cpu: 500m
