@@ -31,7 +31,7 @@ spec:
         fsGroup: 82
       initContainers:
         - name: database-migrations
-          image: harbor.korporate.org/myapp/myapp-fpm:299
+          image: harbor.korporate.org/myapp/myapp-fpm:309
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
