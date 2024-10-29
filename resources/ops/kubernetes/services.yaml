@@ -1,0 +1,16 @@
+kind: Service
+metadata:
+  labels:
+    app: myapp
+    env: staging
+  name: myapp
+  namespace: myapp
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: http-myapp
+  selector:
+    app: myapp
+    env: staging
+  type: NodePort

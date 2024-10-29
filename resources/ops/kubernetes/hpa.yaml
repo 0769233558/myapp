@@ -2,7 +2,11 @@
 kind: HorizontalPodAutoscaler
 apiVersion: autoscaling/v2
 metadata:
+  labels:
+    app: myapp
+    env: staging
   name: myapp
+  env: staging
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
@@ -11,6 +15,18 @@ spec:
   minReplicas: 1
   maxReplicas: 10
   metrics:
+    - resource:
+        name: memory
+        target:
+          averageUtilization: 80
+          type: Utilization
+      type: Resource
+    - resource:
+        name: cpu
+        target:
+          averageUtilization: 70
+          type: Utilization
+      type: Resource
     - type: Pods
       pods:
         metric:

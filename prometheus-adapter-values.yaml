@@ -1,5 +1,5 @@
 prometheus:
-  url: http://prometheus-server.default.svc
+  url: http://prometheus.korporate.org
   port: 80
 
 rules:
