@@ -10,7 +10,7 @@ jobs:
     name: Build
     # runs-on: arc-runner-set-dind
     # runs-on: ubuntu-latest
-    runs-on: arc-runner-set-95pbn
+    runs-on: arc-runner-set
     steps:
       - uses: docker/login-action@v1
         with:
