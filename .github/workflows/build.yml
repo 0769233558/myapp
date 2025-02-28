@@ -33,9 +33,7 @@ jobs:
       # - uses: sonarsource/sonarqube-quality-gate-action@master
       #   timeout-minutes: 5
       #   env:
-      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      - name: sleep
-        run: sleep 36000   
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} 
       - name: Compose before run docker-compose
         run: composer update --ignore-platform-reqs
       - name: Start containers
