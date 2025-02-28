@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: arc-dind-runner-set
+    runs-on: arc-runner-set
     #runs-on: ubuntu-latest
     #runs-on: arc-runner-set
     steps:
