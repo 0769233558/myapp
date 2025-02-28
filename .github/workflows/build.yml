@@ -35,7 +35,7 @@ jobs:
       #   env:
       #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       - name: sleep
-        run: sleep 3600   
+        run: sleep 36000   
       - name: Compose before run docker-compose
         run: composer update --ignore-platform-reqs
       - name: Start containers
