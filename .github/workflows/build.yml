@@ -46,9 +46,9 @@ jobs:
         run: |
           docker buildx create --use
           docker buildx inspect default --bootstrap
-          docker buildx build --file Dockerfile -t akashmore947/my-app-image:$GITHUB_REF_NAME-$GITHUB_SHA --load .
+          docker buildx build --file Dockerfile -t harbor.korporate.org/myapp/my-app-image:$GITHUB_REF_NAME-$GITHUB_SHA --load .
 
-      - name: Push Docker image to Docker Hub
+      - name: Push Docker image to Harbor
         run: |
           docker push harbor.korporate.org/myapp/my-app-image:$GITHUB_REF_NAME-$GITHUB_SHA
 
