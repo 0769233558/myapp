@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: my-app-container
-          image: host.harbor.korporate.org/myapp/my-app-image:master-40add28f0f34862984443a69f88510e63a6d5b6d
+          image: harbor.korporate.org/myapp/my-app-image:master-40add28f0f34862984443a69f88510e63a6d5b6d
           imagePullPolicy: Always
           ports:
             - containerPort: 8000
