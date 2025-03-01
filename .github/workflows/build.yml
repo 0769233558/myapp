@@ -57,16 +57,20 @@ jobs:
           sudo curl -sL -o /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
           sudo chmod a+x /usr/local/bin/yq
       #    sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
-
-      - name: Update manifest file
+      
+      - name: Clone Repository
         run: |
-          # Assuming you have a manifest file named k8s.yaml
           git config --global user.name "${{secrets.USERNAME_GITHUB}}"
           git config --global user.email "${{secrets.EMAIL_GITHUB}}"
+          cd /tmp
+          git clone https://github.com/0769233558/myapp.git
+          cd myapp
+      - name: Update manifest file
+        run: |
           yq eval '.spec.template.spec.containers[0].image = "harbor.korporate.org/my-app-image:${{ env.GITHUB_BRANCH }}"' -i deployments/deployment.yml
 
-          git pull
+      - name: Push to Repo
+        run: |
           git add .
-
-          git commit -m "updating newer image"
-          git push --set-upstream origin main
+          git commit -m "Updated by GitHub Actions"
+          git push https://github.com/0769233558/myapp.git --all
