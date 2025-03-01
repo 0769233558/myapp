@@ -1,7 +1,6 @@
-FROM hello-world:latest
-FROM scratch
-COPY hello /
-CMD ["/hello"]
+FROM php:7.0-apache
+COPY src/ /var/www/html
+EXPOSE 80
 #FROM node:14
 
 # Set the working directory in the container

@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-deployment
-  namespace: my-deployment
+  name: myapp
+  namespace: staging
 spec:
   replicas: 10
   selector:
     matchLabels:
-      app: my-deployment
+      app: myapp
   template:
     metadata:
       labels:
-        app: my-deployment
+        app: myapp
     spec:
       containers:
         - name: my-app-container
           image: harbor.korporate.org/myapp/my-app-image:main-06ee415c3e7f5c654d93af86e755f43ea855b911
           imagePullPolicy: Always
           ports:
-            - containerPort: 8000
+            - containerPort: 80

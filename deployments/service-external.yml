@@ -1,17 +1,15 @@
+---
 apiVersion: v1
 kind: Service
 metadata:
-  name: myapp
+  name: myapp-external
   namespace: staging
   labels:
     traefik-discover: "true"
 spec:
-  type: LoadBalancer
-  loadBalancerIP: 10.0.50.110
+  type: ExternalName
+  externalName: "10.0.50.110"
   ports:
     - name: http
-      protocol: TCP
       port: 80
-      targetPort: 80
-  selector:
-    app: myapp
+      protocol: TCP
