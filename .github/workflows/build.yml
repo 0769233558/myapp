@@ -51,7 +51,11 @@ jobs:
       - name: Push Docker image to Harbor
         run: |
           docker push harbor.korporate.org/myapp/my-app-image:$GITHUB_REF_NAME-$GITHUB_SHA
-
+          
+      - name: yq
+        uses: mikefarah/yq@3.3.0
+      - name: test
+        run: yq --version
       #- name: Install yq
       # run: |
       #    sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
