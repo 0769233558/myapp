@@ -11,6 +11,8 @@ jobs:
     runs-on: dind-arc-runners-set
     # runs-on: arc-runners-set
     # runs-on: kube-arc-runners-set
+    permissions:
+      contents: write
     steps:
       - uses: docker/login-action@v1
         with:
@@ -59,13 +61,13 @@ jobs:
           sudo chmod a+x /usr/local/bin/yq
       #    sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
       
-      - name: Clone Repository
-        run: |
-          git config --global user.name "${{secrets.USERNAME_GITHUB}}"
-          git config --global user.email "${{secrets.EMAIL_GITHUB}}"
-          cd /tmp
-          git clone https://github.com/0769233558/myapp.git
-          cd myapp
+      # - name: Clone Repository
+      #   run: |
+      #     git config --global user.name "${{secrets.USERNAME_GITHUB}}"
+      #     git config --global user.email "${{secrets.EMAIL_GITHUB}}"
+      #     cd /tmp
+      #     git clone https://github.com/0769233558/myapp.git
+      #     cd myapp
       - name: Update manifest file
         run: |
           yq eval '.spec.template.spec.containers[0].image = "harbor.korporate.org/my-app-image:${{ env.GITHUB_BRANCH }}"' -i deployments/deployment.yml
