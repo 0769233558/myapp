@@ -8,7 +8,7 @@ on:
 jobs:
   build-and-deploy:
     name: Build
-    runs-on: arc-runner-set
+    runs-on: dind-arc-runner-set
 
     steps:
       - uses: docker/login-action@v1
