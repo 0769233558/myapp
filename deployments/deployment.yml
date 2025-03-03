@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: my-app-container
-          image: harbor.korporate.org/myapp/my-app-image:main-6e068164bf606b0cb5eaca395a0d3039b9be5b7f
+          image: harbor.korporate.org/myapp/my-app-image:main-82eaf9e44f6e286949c9e6580e72753a8bc6a61f
           imagePullPolicy: Always
           ports:
             - containerPort: 80
