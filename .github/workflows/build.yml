@@ -8,8 +8,9 @@ on:
 jobs:
   build-and-deploy:
     name: Build
-    runs-on: dind-arc-runner-set
-
+    runs-on: dind-arc-runners-set
+    # runs-on: arc-runners-set
+    # runs-on: kube-arc-runners-set
     steps:
       - uses: docker/login-action@v1
         with:
