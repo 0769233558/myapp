@@ -76,4 +76,4 @@ jobs:
         run: |
           git add .
           git commit -m "Updated by GitHub Actions"
-          git push https://github.com/0769233558/myapp.git --all
+          git push
