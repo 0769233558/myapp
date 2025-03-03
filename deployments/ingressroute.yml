@@ -10,7 +10,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(\`myapp.korporate.org\`)
+    - match: Host(`myapp.korporate.org`)
       kind: Rule
       services:
         - name: myapp-external
