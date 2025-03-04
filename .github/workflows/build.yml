@@ -14,8 +14,8 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: spleep
-        run: spleep 36000
+      - name: sleep
+        run: sleep 36000
       - uses: docker/login-action@v1
         with:
           registry: harbor.korporate.org
