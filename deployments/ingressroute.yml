@@ -4,7 +4,7 @@ apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
   name: myapp
-  namespace: staging
+  namespace: staging-myapp
   labels:
     app: myapp
     traefik-discover: 'public'
